@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use yii\data\ActiveDataProvider;
 
 
 
@@ -121,6 +122,20 @@ class LibroController extends Controller
 
         return $this->redirect(['index']);
     }
+
+    
+public function actionEstudiante()
+{
+    $searchModel = new LibroSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+    return $this->render('estudiante', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+    ]);
+}
+
+
 
     /**
      * Finds the Libro model based on its primary key value.

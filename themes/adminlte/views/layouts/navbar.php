@@ -7,7 +7,7 @@ use yii\helpers\Url;
 $userType = Yii::$app->user->identity->tipo_usuario ?? null;
 ?>
 
-<nav class="main-header navbar navbar-expand-lg navbar-light bg-light shadow-sm rounded px-3 py-2 mt-3 mx-3">
+<nav class="main-header navbar navbar-expand navbar-dark bg-primary">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
             <a href="/site/index" class="nav-link d-flex align-items-center">
@@ -15,20 +15,20 @@ $userType = Yii::$app->user->identity->tipo_usuario ?? null;
                      alt="Universidad Luis Vargas Torres" 
                      class="img-fluid rounded-circle mr-2" 
                      style="height: 35px;">
-                <span class="font-weight-bold text-primary">UTELVT | Biblioteca</span>
+                <span class="font-weight-bold text-light">UTELVT | Biblioteca</span>
             </a>
         </li>
 
         <?php if ($userType === 21 || $userType === 7 || $userType === 8): ?>
             <li class="nav-item ml-3">
                 <a href="<?= Url::to(['/user/index']) ?>" class="nav-link">
-                    <i class="fas fa-users text-secondary"></i>&nbsp;Usuarios
+                    <i class="fas fa-users text-light"></i>&nbsp;Usuarios
                 </a>
             </li>
 
             <li class="nav-item dropdown ml-3">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                    <i class="fas fa-book text-secondary"></i>&nbsp;Circulación
+                    <i class="fas fa-book text-light"></i>&nbsp;Circulación
                 </a>
                 <div class="dropdown-menu shadow rounded border-0">
                     <a href="<?= Url::to(['/libro/index']) ?>" class="dropdown-item">Catálogo de Libros</a>
@@ -41,28 +41,25 @@ $userType = Yii::$app->user->identity->tipo_usuario ?? null;
 
             <li class="nav-item dropdown ml-3">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                    <i class="fas fa-archive text-secondary"></i>&nbsp;Repositorio
+                    <i class="fas fa-archive text-light"></i>&nbsp;Repositorio
                 </a>
                 <div class="dropdown-menu shadow rounded border-0">
                     <a href="<?= Url::to(['/tesis/index']) ?>" class="dropdown-item">Catálogo de Tesis</a>
                 </div>
             </li>
+            <li class="nav-item dropdown ml-3">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <i class="fas fa-credit-card text-light"></i>&nbsp;Préstamo
+            </a>
+            <div class="dropdown-menu shadow rounded border-0">
+                <a href="<?= Url::to(['/prestamo/create']) ?>" class="dropdown-item">Préstamo</a>
+                <a href="<?= Url::to(['/prestamo/estadisticalibro']) ?>" class="dropdown-item">Generador de Estadística</a>
+            </div>
+        </li>
         <?php endif; ?>
-
-        <li class="nav-item dropdown ml-3">
-    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-        <i class="fas fa-clock text-secondary"></i>&nbsp;XXX
-    </a>
-    <div class="dropdown-menu shadow rounded border-0">
-        <a href="<?= Url::to(['/prestamo/create']) ?>" class="dropdown-item">Préstamo</a>
-        <a href="<?= Url::to(['/prestamo/estadisticalibro']) ?>" class="dropdown-item">Generador de Estadística</a>
-    </div>
-</li>
-
-
         <li class="nav-item dropdown ml-3">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <i class="fas fa-clock text-secondary"></i>&nbsp;Horarios
+                <i class="fas fa-clock text-light"></i>&nbsp;Horarios
             </a>
             <div class="dropdown-menu shadow rounded border-0">
                 <a href="<?= Url::to(['/biblioteca/view?idbiblioteca=1']) ?>" class="dropdown-item">Esmeraldas</a>
@@ -74,7 +71,7 @@ $userType = Yii::$app->user->identity->tipo_usuario ?? null;
         </li>
 
         <li class="nav-item ml-3">
-            <a href="<?= Url::to(['/site/about']) ?>" class="nav-link text-secondary">Acerca de Nosotros</a>
+            <a href="<?= Url::to(['/site/about']) ?>" class="nav-link text-light">Acerca de Nosotros</a>
         </li>
     </ul>
 
@@ -101,7 +98,7 @@ $userType = Yii::$app->user->identity->tipo_usuario ?? null;
                     $iniciales = strtoupper(substr($nombre, 0, 1) . substr($apellido, 0, 1));
                 ?>
                 <a href="#" class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown">
-                    <div class="user-initials bg-primary text-white rounded-circle d-flex align-items-center justify-content-center font-weight-bold" style="width: 35px; height: 35px;">
+                    <div class="user-initials bg-light text-dark rounded-circle d-flex align-items-center justify-content-center font-weight-bold" style="width: 35px; height: 35px;">
                         <?= $iniciales ?>
                     </div>
                 </a>
