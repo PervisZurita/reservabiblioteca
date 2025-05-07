@@ -181,12 +181,8 @@ $this->registerCss("
     <p class="lead">"Te deseamos una experiencia enriquecedora y llena de inspiración."</p>
 </div>
 
-<?php
-$userType = Yii::$app->user->identity->tipo_usuario ?? null;
-?>
-
-<?php if (!Yii::$app->user->isGuest && ($userType === 13 || $userType === 1)): ?>
 <div class="body-content">
+<?php if (!Yii::$app->user->isGuest): ?>
     <div class="row">
         <div class="col-12 col-lg-4">
             <div class="icon-box">
@@ -217,12 +213,12 @@ $userType = Yii::$app->user->identity->tipo_usuario ?? null;
                 <i class="fas fa-book"></i>
                 <h2>Catálogo de Libros</h2>
                 <p>Explora y solicita libros de nuestra amplia colección literaria y científica.</p>
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/libro/estudiante']) ?>">SOLICITAR LIBROS &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/libro/index']) ?>">SOLICITAR LIBROS &raquo;</a></p>
             </div>
         </div>
     </div>
-</div>
 <?php endif; ?>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="prestamo-modal" tabindex="-1" role="dialog" aria-labelledby="prestamo-modal-label" aria-hidden="true">
