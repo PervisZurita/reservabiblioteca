@@ -10,7 +10,7 @@ if (Yii::$app->user->isGuest) {
     <div class="container-fluid">
         <!-- Espacio en blanco antes del login (puede ajustar el tamaño aquí) -->
         <div class="row mt-5">
-            <div class="col-md-8 mx-auto ">
+            <div class="col-md-8 mx-auto">
                 <?= $content ?>
             </div>
         </div>
@@ -20,29 +20,18 @@ if (Yii::$app->user->isGuest) {
     // Si el usuario está autenticado, muestra el menú y el contenido principal
 ?>
     <div class="container-fluid">
-        <div class="row">
-            <!-- Menú lateral -->
-            <div class="col-md-3">
-                <!-- Aquí coloca tu código del menú -->
-            </div>
+        <!-- Contenido principal -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- Puedes agregar breadcrumbs u otro encabezado aquí si es necesario -->
 
-            <!-- Contenido principal -->
-            <div class="col-md-12">
-                <div class="content-wrapper">
-                    <!-- Content Header (Page header) -->
-                    <div class="content-header">
-                        <!-- Aquí coloca tu código de encabezado si es necesario -->
-                    </div>
-                    <!-- /.content-header -->
-
-                    <!-- Main content -->
-                    <div class="content">
-                        <?= $content ?>
-                    </div>
-                    <!-- /.content -->
-                </div>
+            <!-- Main content -->
+            <div class="content">
+                <?= $content ?>
             </div>
+            <!-- /.content -->
         </div>
+        <!-- /.content-wrapper -->
     </div>
 <?php
 }

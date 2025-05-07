@@ -213,7 +213,7 @@ $this->registerCss("
                 <i class="fas fa-book"></i>
                 <h2>Catálogo de Libros</h2>
                 <p>Explora y solicita libros de nuestra amplia colección literaria y científica.</p>
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/libro/index']) ?>">SOLICITAR LIBROS &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/libro/estudiante']) ?>">SOLICITAR LIBROS &raquo;</a></p>
             </div>
         </div>
     </div>

@@ -42,7 +42,7 @@ $this->registerJsFile($publishedRes[1].'/control_sidebar.js', ['depends' => '\ha
     </style>
     
 </head>
-<body class="hold-transition layout-fixed sidebar-collapse sidebar-mini layout-navbar-fixed">
+
 <?php $this->beginBody() ?>
 
 <div class="wrapper">
@@ -58,6 +58,10 @@ $this->registerJsFile($publishedRes[1].'/control_sidebar.js', ['depends' => '\ha
     <!-- Content Wrapper. Contains page content -->
     <?= $this->render('content', ['content' => $content, 'assetDir' => $assetDir]) ?>
     <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <?php // $this->render('control-sidebar') ?>
+    <!-- /.control-sidebar -->
 
 </div>
 

@@ -132,8 +132,6 @@ $this->registerJs("
         <?= Html::a('<i class="fas fa-file-export"></i> Exportar', ['export'], ['class' => 'btn btn-export']) ?>
     </p>
 
-
-
     <!-- Modal de Importación -->
     <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">

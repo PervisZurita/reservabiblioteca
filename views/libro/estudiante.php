@@ -110,13 +110,13 @@ $this->registerJs("
                     alert(response.message);
                 }
             },
-            error: function() {
-                alert('Error al procesar la importación');
+            error: function(xhr) {
+                alert('Error al procesar la importación: ' + xhr.responseText);
             }
         });
     });
 
-    $('#prestamo-modal').on('show.bs.modal', function (e) {
+    $('#modal-prestamo-libro').on('show.bs.modal', function (e) {
         var button = $(e.relatedTarget);
         var url = button.data('remote');
         $('#modalContent').load(url);
@@ -128,10 +128,7 @@ $this->registerJs("
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php
-    $tipoUsuario = null;
-    if (!Yii::$app->user->isGuest) {
-        $tipoUsuario = Yii::$app->user->identity->tipo_usuario;
-    }
+    $tipoUsuario = !Yii::$app->user->isGuest ? Yii::$app->user->identity->tipo_usuario : null;
     ?>
 
     <?php Pjax::begin(['id' => 'pjax-container']); ?>
@@ -141,8 +138,8 @@ $this->registerJs("
         'pager' => [
             'options' => ['class' => 'pagination justify-content-center'],
             'maxButtonCount' => 5,
-            'prevPageLabel' => 'Anterior',
-            'nextPageLabel' => 'Siguiente',
+            'prevPageLabel' => Yii::t('app', 'Anterior'),
+            'nextPageLabel' => Yii::t('app', 'Siguiente'),
             'linkOptions' => ['class' => 'page-link'],
             'activePageCssClass' => 'page-item active',
             'disabledListItemSubTagOptions' => ['tag' => 'a', 'class' => 'page-link'],
@@ -154,9 +151,9 @@ $this->registerJs("
             'editorial',
             [
                 'attribute' => 'pais_codigopais',
-                'label' => 'País',
+                'label' => Yii::t('app', 'País'),
                 'value' => function ($model) {
-                    return $model->pais ? $model->pais->Nombrepais : 'No disponible';
+                    return $model->pais ? $model->pais->Nombrepais : Yii::t('app', 'No disponible');
                 },
                 'filter' => ArrayHelper::map(Pais::find()->all(), 'codigopais', 'Nombrepais'),
             ],
@@ -173,7 +170,7 @@ $this->registerJs("
                             'data-toggle' => 'modal',
                             'data-target' => '#modal-prestamo-libro',
                             'data-remote' => $url,
-                            'title' => 'Prestasr Libro',
+                            'title' => Yii::t('app', 'Prestar Libro'),
                         ]);
                     },
                 ],
@@ -184,9 +181,10 @@ $this->registerJs("
 </div>
 
 <?php
+// Modal para préstamo de libro
 Modal::begin([
     'id' => 'modal-prestamo-libro',
-    'title' => '<h4>Prestar Libro</h4>',
+    'title' => '<h4>' . Yii::t('app', 'Prestar Libro') . '</h4>',
     'size' => Modal::SIZE_LARGE,
 ]);
 echo '<div id="modalContent"></div>';
